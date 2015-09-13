@@ -27,7 +27,8 @@ module.exports = {
           'babel-loader'
         ]
       }]
-    }
+    },
+    devtool: 'source-map'
   },
   browserSync: {
     server: {

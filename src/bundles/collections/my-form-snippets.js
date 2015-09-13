@@ -1,54 +1,49 @@
-define([
-       "jquery" , "underscore" , "backbone"
-       , "models/snippet"
-       , "collections/snippets"
-       , "views/my-form-snippet"
-], function(
-  $, _, Backbone
-  , SnippetModel
-  , SnippetsCollection
-  , MyFormSnippetView
-){
-  return SnippetsCollection.extend({
-    model: SnippetModel
-    , initialize: function() {
-      this.counter = {};
-      this.on("add", this.giveUniqueId);
+import $ from 'jquery';
+import _ from 'lodash';
+import Backbone from 'backbone';
+import SnippetModel from '../models/snippet';
+import SnippetsCollection from './snippets';
+import MyFormSnippetView from '../views/my-form-snippet';
+
+export default SnippetsCollection.extend({
+  model: SnippetModel
+  , initialize: function() {
+    this.counter = {};
+    this.on("add", this.giveUniqueId);
+  }
+
+  , giveUniqueId: function(snippet){
+    if(!snippet.get("fresh")) {
+      return;
+    }
+    snippet.set("fresh", false);
+    var snippetType = snippet.attributes.fields.id.value;
+
+    if(typeof this.counter[snippetType] === "undefined") {
+      this.counter[snippetType] = 0;
+    } else {
+      this.counter[snippetType] += 1;
     }
 
-    , giveUniqueId: function(snippet){
-      if(!snippet.get("fresh")) {
-        return;
-      }
-      snippet.set("fresh", false);
-      var snippetType = snippet.attributes.fields.id.value;
+    snippet.setField("id", snippetType + "-" + this.counter[snippetType]);
 
-      if(typeof this.counter[snippetType] === "undefined") {
-        this.counter[snippetType] = 0;
-      } else {
-        this.counter[snippetType] += 1;
-      }
-
-      snippet.setField("id", snippetType + "-" + this.counter[snippetType]);
-
-      if(typeof snippet.get("fields")["id2"] !== "undefined") {
-        snippet.setField("id2", snippetType + "2-" + this.counter[snippetType]);
-      }
+    if(typeof snippet.get("fields")["id2"] !== "undefined") {
+      snippet.setField("id2", snippetType + "2-" + this.counter[snippetType]);
     }
-    , containsFileType: function(){
-      return !(typeof this.find(function(snippet){
-        return snippet.attributes.title === "File Button"
-      }) === "undefined");
-    }
-    , renderAll: function(){
-      return this.map(function(snippet){
-        return new MyFormSnippetView({model: snippet}).render(true);
-      })
-    }
-    , renderAllClean: function(){
-      return this.map(function(snippet){
-        return new MyFormSnippetView({model: snippet}).render(false);
-      });
-    }
-  });
+  }
+  , containsFileType: function(){
+    return !(typeof this.find(function(snippet){
+      return snippet.attributes.title === "File Button"
+    }) === "undefined");
+  }
+  , renderAll: function(){
+    return this.map(function(snippet){
+      return new MyFormSnippetView({model: snippet}).render(true);
+    })
+  }
+  , renderAllClean: function(){
+    return this.map(function(snippet){
+      return new MyFormSnippetView({model: snippet}).render(false);
+    });
+  }
 });

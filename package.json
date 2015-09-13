@@ -44,5 +44,11 @@
   "bugs": {
     "url": "https://github.com/ArchivedRepos/Bootstrap-Form-Builder/issues"
   },
-  "homepage": "https://github.com/ArchivedRepos/Bootstrap-Form-Builder#readme"
+  "homepage": "https://github.com/ArchivedRepos/Bootstrap-Form-Builder#readme",
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "underscore": "^1.8.3"
+  }
 }
