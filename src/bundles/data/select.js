@@ -1,4 +1,4 @@
-[
+export default [
   {
     "title": "Select Basic",
     "fields": {
@@ -117,4 +117,4 @@
       }
     }
   }
-]
+];

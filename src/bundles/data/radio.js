@@ -1,4 +1,4 @@
-[
+export default [
   {
     "title": "Multiple Radios",
     "fields": {
@@ -115,4 +115,4 @@
       }
     }
   }
-]
+];

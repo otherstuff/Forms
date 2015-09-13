@@ -1,4 +1,4 @@
-[
+export default [
   {
     "title": "Text Input",
     "fields": {
@@ -576,4 +576,4 @@
       }
     }
   }
-]
+];

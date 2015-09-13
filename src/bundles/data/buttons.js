@@ -1,4 +1,4 @@
-[
+export default [
   {
     "title": "File Button",
     "fields": {
@@ -187,4 +187,4 @@
       }
     }
   }
-]
+];
