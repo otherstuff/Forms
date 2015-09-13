@@ -46,9 +46,9 @@
   },
   "homepage": "https://github.com/ArchivedRepos/Bootstrap-Form-Builder#readme",
   "dependencies": {
-    "backbone": "^1.2.3",
-    "jquery": "^2.1.4",
+    "jquery": "^1.11.0",
     "lodash": "^3.10.1",
+    "tether": "^1.1.0",
     "underscore": "^1.8.3"
   }
 }

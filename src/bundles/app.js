@@ -1,8 +1,8 @@
 import $ from 'jquery';
-import _ from 'lodash';
+import _ from 'underscore';
 import Backbone from 'backbone';
 import SnippetsCollection from './collections/snippets';
-import MyFormSnippetsCollection from './views/my-form-snippet';
+import MyFormSnippetsCollection from './collections/my-form-snippets';
 import TabView from './views/tab';
 import MyFormView from './views/my-form';
 
@@ -11,18 +11,20 @@ import radioJSON from './data/radio';
 import selectJSON from './data/select';
 import buttonsJSON from './data/buttons';
 
-import {renderTpl as renderTab, aboutTpl as aboutTab} from './templates/templates.js';
+import {render as renderTab, about as aboutTab} from './templates/templates.js';
 
-console.log(inputJSON);
 
 export default {
   initialize: function(){
 
+console.log(inputJSON);
     //Bootstrap tabs from json.
+
     new TabView({
       title: "Input"
         , collection: new SnippetsCollection(inputJSON)
     });
+    console.log('test');
     new TabView({
       title: "Radios / Checkboxes"
         , collection: new SnippetsCollection(radioJSON)

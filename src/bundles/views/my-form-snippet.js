@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import _ from 'lodash';
+import _ from 'underscore';
 import Backbone from 'backbone';
 import SnippetView from './snippet';
 import TempSnippetView from './temp-snippet';
@@ -18,6 +18,7 @@ export default SnippetView.extend({
     var that = this;
     //popover
     $(".popover").remove();
+    console.log(this);
     this.$el.popover("show");
     $(".popover #save").on("click", this.saveHandler(that));
     $(".popover #cancel").on("click", this.cancelHandler(that));
@@ -28,7 +29,7 @@ export default SnippetView.extend({
           Math.abs(mouseDownEvent.pageX - mouseMoveEvent.pageX) > 10 ||
           Math.abs(mouseDownEvent.pageY - mouseMoveEvent.pageY) > 10
         ){
-          that.$el.popover('destroy');
+          that.$el.popover('hide');
           PubSub.trigger("mySnippetDrag", mouseDownEvent, that.model);
           that.mouseUpHandler();
         };
@@ -81,7 +82,9 @@ export default SnippetView.extend({
             break;
         }
       });
-      boundContext.model.trigger("change");
+      console.log(boundContext);
+      console.log(boundContext.model);
+      boundContext.model.trigger("change", boundContext.model);
       $(".popover").remove();
     }
   }
@@ -90,7 +93,7 @@ export default SnippetView.extend({
     return function(mouseEvent) {
       mouseEvent.preventDefault();
       $(".popover").remove();
-      boundContext.model.trigger("change");
+      boundContext.model.trigger("change", boundContext.model);
     }
   }
 

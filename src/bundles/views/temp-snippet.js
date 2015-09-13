@@ -1,5 +1,6 @@
 import $ from 'jquery';
-import { tempTpl as _tempTemplate } from '../templates/templates';
+import _ from 'underscore';
+import { temp as _tempTemplate } from '../templates/templates';
 import PubSub from '../helper/pubsub';
 import SnippetView from './snippet';
 

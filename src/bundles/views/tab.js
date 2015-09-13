@@ -1,12 +1,13 @@
 import $ from 'jquery';
-import _ from 'lodash';
+import _ from 'underscore';
 import Backbone from 'backbone';
-import { navTpl as _tabNavTemplate } from '../templates/templates';
+import { nav as _tabNavTemplate } from '../templates/templates';
 
 export default Backbone.View.extend({
   tagName: "div",
   className: "tab-pane",
-  initialize: function() {
+  initialize: function(options = {}) {
+    this.options = options;
     console.log(this);
     this.id = this.options.title.toLowerCase().replace(/\W/g,'');
     this.tabNavTemplate = _.template(_tabNavTemplate);

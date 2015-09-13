@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import _ from 'lodash';
+import _ from 'underscore';
 import Backbone from 'backbone';
 
 import TempSnippetView from './temp-snippet';

@@ -1,15 +1,20 @@
 import $ from 'jquery';
-import _ from 'lodash';
+import _ from 'underscore';
 import Backbone from 'backbone';
+//import '../lib/bootstrap';
+import '../lib/bs/bootstrap';
 
 import {
-  popoverMainTpl as _PopoverMain,
-  popoverInputTpl as _PopoverInput,
-  popoverSelectTpl as _PopoverSelect,
-  popoverTextareaSplitTpl as _PopoverTextAreaSplit,
-  popoverCheckboxTpl as _PopoverCheckbox,
-  snippetTemplatesTpl as _snippetTemplates
+  popoverMain as _PopoverMain,
+  popoverInput as _PopoverInput,
+  popoverSelect as _PopoverSelect,
+  popoverTextareaSplit as _PopoverTextAreaSplit,
+  popoverTextarea as _PopoverTextArea,
+  popoverCheckbox as _PopoverCheckbox
+  //snippetTemplates as _snippetTemplates
 } from '../templates/templates';
+
+import * as _snippetTemplates from '../templates/templates';
 
 //TODO: Figure out how to import bootstrap without polluting global scope.
 
@@ -17,6 +22,7 @@ export default Backbone.View.extend({
   tagName: "div"
   , className: "component" 
   , initialize: function(){
+    console.log(this.model.idFriendlyTitle());
     this.template = _.template(_snippetTemplates[this.model.idFriendlyTitle()])
     this.popoverTemplates = {
       "input" : _.template(_PopoverInput)
