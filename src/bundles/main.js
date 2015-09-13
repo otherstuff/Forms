@@ -23,6 +23,6 @@ require.config({
     , views       : "../views"
   }
 });
-require([ 'app/app'], function(app){
+require([ './app.js'], function(app){
   app.initialize();
 });
