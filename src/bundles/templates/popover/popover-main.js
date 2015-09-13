@@ -8,4 +8,4 @@ export default `<form class='form'>
     <hr/>
     <button id="save" class='btn btn-info'>Save</button><button id="cancel" class='btn btn-danger'>Cancel</button>
   </div>
-</form>`
+</form>`;

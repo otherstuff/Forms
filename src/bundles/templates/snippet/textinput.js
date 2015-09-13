@@ -5,4 +5,4 @@ export default `<!-- Text input-->
     <input id="<%- id %>" name="<%- id %>" type="text" placeholder="<%- placeholder %>" class="<%- inputsize %>" <% if(required) {%> required <% } %> />
     <% if (helptext.length > 0) { %><p class="help-block"><%- helptext %></p><% } %>
   </div>
-</div>`
+</div>`;

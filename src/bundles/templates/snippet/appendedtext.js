@@ -8,4 +8,4 @@ export default `<!-- Appended Input-->
     </div>
     <% if (helptext.length > 0) { %><p class="help-block"><%- helptext %></p><% } %>
   </div>
-</div>`
+</div>`;

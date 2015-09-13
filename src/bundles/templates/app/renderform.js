@@ -3,4 +3,4 @@ export default `<form class="form-horizontal" <% if(multipart){ %>enctype="multi
 
 <%= text %>
 </fieldset>
-</form>`
+</form>`;

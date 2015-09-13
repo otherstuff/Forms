@@ -15,4 +15,4 @@ that keen on adding many features (eg. saving/exporting forms, embedding forms e
 
 <p>
   Adding snippets is quite simple now (due to the rewrite!) so please don't hesitate to open an issue!
-</p>`
+</p>`;

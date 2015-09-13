@@ -4,4 +4,4 @@ export default `<!-- Button -->
   <div class="controls">
     <button id="<%- id %>" name="<%- id %>" class='btn <%- buttontype %>'><%- buttonlabel %></button>
   </div>
-</div>`
+</div>`;

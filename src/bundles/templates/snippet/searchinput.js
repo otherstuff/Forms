@@ -5,4 +5,4 @@ export default `<!-- Search input-->
     <input id="<%- id %>" name="<%- id %>" type="text" placeholder="<%- placeholder %>" class="<%- inputsize %> search-query" <% if(required) {%> required <% } %> />
     <% if (helptext.length > 0) { %><p class="help-block"><%- helptext %></p><% } %>
   </div>
-</div>`
+</div>`;

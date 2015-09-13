@@ -5,4 +5,4 @@ export default `<!-- Button (Double) -->
     <button id="<%- id %>" name="<%- id %>" class='btn <%- button1type %>'><%- button1label %></button>
     <button id="<%- id2 %>" name="<%- id2 %>" class='btn <%- button2type %>'><%- button2label %></button>
   </div>
-</div>`
+</div>`;

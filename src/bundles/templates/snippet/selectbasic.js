@@ -6,4 +6,4 @@ export default `<!-- Select Basic -->
       <option><%- option %></option><% }); %>
     </select>
   </div>
-</div>`
+</div>`;

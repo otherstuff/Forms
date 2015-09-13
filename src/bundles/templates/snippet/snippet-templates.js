@@ -46,4 +46,4 @@ define(function(require) {
     , textarea                 : textarea
     , textinput                : textinput
   }
-});
+});;

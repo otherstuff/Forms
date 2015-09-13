@@ -7,4 +7,4 @@ export default `<!-- Multiple Radios -->
       <%- radio %>
     </label><% }); %>
   </div>
-</div>`
+</div>`;

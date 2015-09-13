@@ -3,4 +3,4 @@ export default `<label class='control-label'> <%- label %> </label>
 <% _.each(value, function(v,k){ %>
   <option value="<%- v["value"] %>" <% if (v["selected"]){ %> selected <% } %> ><%- v["label"] %></option>
 <% }); %>
-</select>`
+</select>`;

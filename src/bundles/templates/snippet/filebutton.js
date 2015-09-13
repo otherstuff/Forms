@@ -4,4 +4,4 @@ export default `<!-- File Button -->
   <div class="controls">
     <input id="<%- id %>" name="<%- id %>" class="input-file" id="fileInput" type="file">
   </div>
-</div>`
+</div>`;

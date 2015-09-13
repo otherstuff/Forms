@@ -7,4 +7,4 @@ export default `<!-- Multiple Checkboxes -->
       <%- checkbox %>
     </label><% }); %>
   </div>
-</div>`
+</div>`;

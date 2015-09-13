@@ -4,4 +4,4 @@ export default `<!-- Textarea -->
   <div class="controls">                     
     <textarea id="<%- id %>" name="<%- id %>" ><%- textarea %></textarea>
   </div>
-</div>`
+</div>`;
