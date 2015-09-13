@@ -1,4 +1,4 @@
-<!-- Appended checkbox -->
+export default `<!-- Appended checkbox -->
 <div class="control-group">
   <label class="control-label" for="<%- id %>"><%- label %></label>
   <div class="controls">
@@ -10,4 +10,4 @@
     </div>
     <% if (helptext.length > 0) { %><p class="help-block"><%- helptext %></p><% } %>
   </div>
-</div>
+</div>`

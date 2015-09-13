@@ -1,4 +1,4 @@
-<h3>About</h3>
+export default `<h3>About</h3>
 
 <p>
 Created By Adam Moore (@<a href="http://twitter.com/minikomi">minikomi</a>) to help take the stress out of 
@@ -15,4 +15,4 @@ that keen on adding many features (eg. saving/exporting forms, embedding forms e
 
 <p>
   Adding snippets is quite simple now (due to the rewrite!) so please don't hesitate to open an issue!
-</p>
+</p>`

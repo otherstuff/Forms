@@ -1,4 +1,4 @@
-<!-- Button Drop Down -->
+export default `<!-- Button Drop Down -->
 <div class="control-group">
   <label class="control-label" for="<%- id %>"><%- label %></label>
   <div class="controls">
@@ -15,4 +15,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>`

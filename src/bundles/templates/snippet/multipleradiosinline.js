@@ -1,4 +1,4 @@
-<!-- Multiple Radios (inline) -->
+export default `<!-- Multiple Radios (inline) -->
 <div class="control-group">
   <label class="control-label" for="<%- name %>"><%- label %></label>
   <div class="controls"><% _.each(radios, function(radio, i){ %>
@@ -7,4 +7,4 @@
       <%- radio %>
     </label><% }); %>
   </div>
-</div>
+</div>`

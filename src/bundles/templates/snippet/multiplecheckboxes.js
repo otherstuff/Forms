@@ -1,4 +1,4 @@
-<!-- Multiple Checkboxes -->
+export default `<!-- Multiple Checkboxes -->
 <div class="control-group">
   <label class="control-label" for="<%- name %>"><%- label %></label>
   <div class="controls"><% _.each(checkboxes, function(checkbox, i){ %>
@@ -7,4 +7,4 @@
       <%- checkbox %>
     </label><% }); %>
   </div>
-</div>
+</div>`
