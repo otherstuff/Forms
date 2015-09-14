@@ -45,7 +45,9 @@ export default {
 
     //Make the first tab active!
     $("#components .tab-pane").first().addClass("active");
-    $("#formtabs li").first().addClass("active");
+    //$("#formtabs li").first().addClass("active");
+    $("#formtabs li a").first().addClass("active");
+    console.log($('#formtabs li').first());
     // Bootstrap "My Form" with 'Form Name' snippet.
     new MyFormView({
       title: "Original"
