@@ -22,7 +22,6 @@ export default Backbone.View.extend({
   tagName: "div"
   , className: "component" 
   , initialize: function(){
-    console.log(this.model.idFriendlyTitle());
     this.template = _.template(_snippetTemplates[this.model.idFriendlyTitle()])
     this.popoverTemplates = {
       "input" : _.template(_PopoverInput)

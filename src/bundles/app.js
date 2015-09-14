@@ -11,20 +11,17 @@ import radioJSON from './data/radio';
 import selectJSON from './data/select';
 import buttonsJSON from './data/buttons';
 
-import {render as renderTab, about as aboutTab} from './templates/templates.js';
+import {render as renderTab, settings as settingsTab} from './templates/templates.js';
 
 
 export default {
   initialize: function(){
-
-console.log(inputJSON);
     //Bootstrap tabs from json.
 
     new TabView({
       title: "Input"
         , collection: new SnippetsCollection(inputJSON)
     });
-    console.log('test');
     new TabView({
       title: "Radios / Checkboxes"
         , collection: new SnippetsCollection(radioJSON)
@@ -42,8 +39,8 @@ console.log(inputJSON);
         , content: renderTab
     });
     new TabView({
-      title: "About"
-        , content: aboutTab
+      title: "Settings"
+        , content: settingsTab
     });
 
     //Make the first tab active!

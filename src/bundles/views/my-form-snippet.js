@@ -18,7 +18,6 @@ export default SnippetView.extend({
     var that = this;
     //popover
     $(".popover").remove();
-    console.log(this);
     this.$el.popover("show");
     $(".popover #save").on("click", this.saveHandler(that));
     $(".popover #cancel").on("click", this.cancelHandler(that));
@@ -82,8 +81,6 @@ export default SnippetView.extend({
             break;
         }
       });
-      console.log(boundContext);
-      console.log(boundContext.model);
       boundContext.model.trigger("change", boundContext.model);
       $(".popover").remove();
     }

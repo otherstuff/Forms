@@ -1,4 +1,4 @@
-import about from './app/about';
+import settings from './app/settings';
 import render from './app/render';
 import renderform from './app/renderform';
 import nav from './app/tab-nav';
@@ -31,7 +31,7 @@ import textarea from './snippet/textarea';
 import textinput from './snippet/textinput';
 import templates from './templates';
 
-export {about as about};
+export {settings as settings};
 export {render as render};
 export {renderform as renderform};
 export {nav as nav};
