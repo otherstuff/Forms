@@ -1,8 +1,9 @@
 import $ from 'jquery';
+import Tether from 'tether';
 import _ from 'underscore';
 import Backbone from 'backbone';
 //import '../lib/bootstrap';
-import '../lib/bs/bootstrap';
+import 'imports?jQuery=jquery,Tether=tether!../lib/bootstrap';
 
 import {
   popoverMain as _PopoverMain,
