@@ -19,6 +19,8 @@ export default  Backbone.View.extend({
     this.$build = $("#build");
     this.renderForm = _.template(_renderForm);
     this.render();
+    console.log(this.$build.position());
+    console.log(this.$build.width());
   }
 
   , render: function(){

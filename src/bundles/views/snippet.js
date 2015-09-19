@@ -2,7 +2,6 @@ import $ from 'jquery';
 import Tether from 'tether';
 import _ from 'underscore';
 import Backbone from 'backbone';
-//import '../lib/bootstrap';
 import 'imports?jQuery=jquery,Tether=tether!../lib/bootstrap';
 
 import {
@@ -16,8 +15,6 @@ import {
 } from '../templates/templates';
 
 import * as _snippetTemplates from '../templates/templates';
-
-//TODO: Figure out how to import bootstrap without polluting global scope.
 
 export default Backbone.View.extend({
   tagName: "div"
