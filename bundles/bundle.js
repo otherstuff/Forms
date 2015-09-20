@@ -177,7 +177,14 @@
 	    var authForm = document.getElementById('authForm').elements;
 	    var loginModal = (0, _jquery2['default'])('#loginModal');
 	    var logoutBtn = (0, _jquery2['default'])('#logoutBtn');
-	    logoutBtn.hide();
+	
+	    var authInfo = (0, _helperDb.checkAuth)();
+	    if (authInfo) {
+	      loginModal.hide();
+	    } else {
+	      logoutBtn.hide();
+	    }
+	
 	    logoutBtn.on('click', function () {
 	      (0, _helperDb.logout)();
 	      logoutBtn.hide();
