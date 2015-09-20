@@ -11,7 +11,8 @@ module.exports = {
   dest: dest,
   webpack: {
     entry: {
-      bundle: src + '/bundles/main.js'
+      bundle: src + '/bundles/main.js',
+      viewer: src + '/viewer/main.js'
     },
     output: {
       filename: '[name].js',
