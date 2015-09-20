@@ -5,6 +5,7 @@ import SnippetsCollection from './collections/snippets';
 import MyFormSnippetsCollection from './collections/my-form-snippets';
 import TabView from './views/tab';
 import MyFormView from './views/my-form';
+import {saveForm} from './helper/db';
 
 import inputJSON from './data/input';
 import radioJSON from './data/radio';
@@ -34,7 +35,7 @@ export default {
       title: "Buttons"
         , collection: new SnippetsCollection(buttonsJSON)
     });
-    new TabView({
+    let renderView = new TabView({
       title: "Rendered"
         , content: renderTab
     });
@@ -47,9 +48,8 @@ export default {
     $("#components .tab-pane").first().addClass("active");
     //$("#formtabs li").first().addClass("active");
     $("#formtabs li a").first().addClass("active");
-    console.log($('#formtabs li').first());
     // Bootstrap "My Form" with 'Form Name' snippet.
-    new MyFormView({
+    let formView = new MyFormView({
       title: "Original"
         , collection: new MyFormSnippetsCollection([
       { "title" : "Form Name"
@@ -62,6 +62,10 @@ export default {
             }
       }
         ])
+    });
+    $('#saveform').on('click', () => {
+      let data = _.map(formView.collection.models, el => el.attributes);
+      saveForm({models: data, rendered: formView.formMarkup});
     });
   }
 };

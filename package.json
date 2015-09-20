@@ -48,6 +48,7 @@
   "homepage": "https://github.com/ArchivedRepos/Bootstrap-Form-Builder#readme",
   "dependencies": {
     "backbone": "^1.2.3",
+    "firebase": "^2.2.9",
     "jquery": "^1.11.0",
     "lodash": "^3.10.1",
     "tether": "^1.1.0",

@@ -7,7 +7,7 @@ import PubSub from '../helper/pubsub';
 
 import { renderform as _renderForm } from '../templates/templates';
 
-export default  Backbone.View.extend({
+export default Backbone.View.extend({
   tagName: "fieldset"
   , initialize: function(){
     this.collection.on("add", this.render, this);
@@ -18,6 +18,7 @@ export default  Backbone.View.extend({
     PubSub.on("tempDrop", this.handleTempDrop, this);
     this.$build = $("#build");
     this.renderForm = _.template(_renderForm);
+    this.formMarkup = '';
     this.render();
   }
 
@@ -29,9 +30,10 @@ export default  Backbone.View.extend({
     _.each(this.collection.renderAll(), function(snippet){
       that.$el.append(snippet);
     });
+    this.formMarkup = _.map(this.collection.renderAllClean(), e => e.html()).join('\n');
     $("#render").val(that.renderForm({
       multipart: this.collection.containsFileType(),
-      text: _.map(this.collection.renderAllClean(), function(e){return e.html()}).join("\n")
+      text: this.formMarkup
     }));
     this.$el.appendTo("#build form");
     this.delegateEvents();

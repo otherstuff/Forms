@@ -1,7 +1,7 @@
-import app from './app.js';
-
 import Firebase from 'firebase';
 
 const fbRef = new Firebase('https://formbuild.firebaseio.com/');
 
-app.initialize();
+export function saveForm(data) {
+  fbRef.set({models: data.models, rendered: data.rendered});
+}
