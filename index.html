@@ -24,6 +24,11 @@
       <div class="navbar-inner">
         <div class="container">
           <a class="navbar-brand" href="#">Form Builder</a>
+          <!-- Button trigger modal -->
+          <button id="loginModal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login</button>
+          <button id="logoutBtn" type="button" class="btn btn-default">
+            Logout
+          </button>
         </div>
       </div>
     </div>
@@ -76,6 +81,41 @@
       </div>
 
     </div> <!-- /container -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <form id="authForm" class="form-horizontal" >
+              <!-- Text input-->
+              <div class="control-group">
+                <label class="control-label" for="emailinput">Email</label>
+                <div class="controls">
+                  <input id="emailinput" name="emailinput" type="text" placeholder="placeholder" class="input-xlarge">
+                </div>
+              </div>
+              <!-- Password input-->
+              <div class="control-group">
+                <label class="control-label" for="passwordinput">Password</label>
+                <div class="controls">
+                  <input id="passwordinput" name="passwordinput" type="password" placeholder="placeholder" class="input-xlarge">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button id="loginBtn" type="button" class="btn btn-primary">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- <script data-main="assets/js/main.js" src="assets/js/lib/require.js" ></script> -->
     <script src="bundles/bundle.js"></script>

@@ -2,9 +2,19 @@ import Firebase from 'firebase';
 
 const fbRef = new Firebase('https://formbuild.firebaseio.com/');
 
-let formMarkup = document.getElementById('formMarkup');
-fbRef.once('value', snap => {
-  formMarkup.innerHTML = snap.val().rendered;
-});
+let updateData = (user = 'demo') => {
+  let formMarkup = document.getElementById('formMarkup');
+  fbRef.child(user).once('value', snap => {
+    formMarkup.innerHTML = snap.val().rendered;
+  });
+};
 
-console.log('wat');
+let authData = fbRef.getAuth();
+if (authData) {
+  updateData(authData.uid);
+  console.log(authData.uid);
+} else {
+  updateData();
+  console.log('not logged in');
+}
+

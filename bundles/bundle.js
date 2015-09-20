@@ -166,11 +166,37 @@
 	        }
 	      }])
 	    });
+	
 	    (0, _jquery2['default'])('#saveform').on('click', function () {
 	      var data = _underscore2['default'].map(formView.collection.models, function (el) {
 	        return el.attributes;
 	      });
 	      (0, _helperDb.saveForm)({ models: data, rendered: formView.formMarkup });
+	    });
+	
+	    var authForm = document.getElementById('authForm').elements;
+	    var loginModal = (0, _jquery2['default'])('#loginModal');
+	    var logoutBtn = (0, _jquery2['default'])('#logoutBtn');
+	    logoutBtn.hide();
+	    logoutBtn.on('click', function () {
+	      (0, _helperDb.logout)();
+	      logoutBtn.hide();
+	      loginModal.show();
+	    });
+	
+	    (0, _jquery2['default'])('#loginBtn').on('click', function () {
+	      (0, _helperDb.login)({ email: authForm.emailinput.value, password: authForm.passwordinput.value }).then(function (result) {
+	        if (result.authData) {
+	          loginModal.hide();
+	          logoutBtn.show();
+	          console.log(result.authData);
+	        } else if (result.error) {
+	          console.log(result.error);
+	          alert(result.error.message);
+	        } else {
+	          console.log('unknown error');
+	        }
+	      });
 	    });
 	  }
 	};
@@ -20493,6 +20519,10 @@
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
+	exports.checkAuth = checkAuth;
+	exports.onAuth = onAuth;
+	exports.logout = logout;
+	exports.login = login;
 	exports.saveForm = saveForm;
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -20503,8 +20533,45 @@
 	
 	var fbRef = new _firebase2['default']('https://formbuild.firebaseio.com/');
 	
+	var authHandler = function authHandler(error, authData) {
+	  if (error) {
+	    console.log("Login Failed!", error);
+	  } else {
+	    console.log("Authenticated successfully with payload:", authData);
+	  }
+	};
+	
+	function checkAuth() {
+	  return fbRef.getAuth();
+	}
+	
+	function onAuth() {
+	  return fbRef.onAuth;
+	}
+	
+	function logout() {
+	  fbRef.unauth();
+	}
+	
+	function login(authInfo) {
+	  return new Promise(function (resolve, reject) {
+	    fbRef.authWithPassword({
+	      email: authInfo.email,
+	      password: authInfo.password
+	    }, function (error, authData) {
+	      return resolve({ error: error, authData: authData });
+	    });
+	  });
+	}
+	
 	function saveForm(data) {
-	  fbRef.set({ models: data.models, rendered: data.rendered });
+	  var authData = checkAuth();
+	  var fbData = { models: data.models, rendered: data.rendered };
+	  if (authData) {
+	    fbRef.child(authData.uid).set(fbData);
+	  } else {
+	    fbRef.child('demo').set(fbData);
+	  }
 	}
 
 /***/ },

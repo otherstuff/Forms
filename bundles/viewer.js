@@ -55,12 +55,23 @@
 	
 	var fbRef = new _firebase2['default']('https://formbuild.firebaseio.com/');
 	
-	var formMarkup = document.getElementById('formMarkup');
-	fbRef.once('value', function (snap) {
-	  formMarkup.innerHTML = snap.val().rendered;
-	});
+	var updateData = function updateData() {
+	  var user = arguments.length <= 0 || arguments[0] === undefined ? 'demo' : arguments[0];
 	
-	console.log('wat');
+	  var formMarkup = document.getElementById('formMarkup');
+	  fbRef.child(user).once('value', function (snap) {
+	    formMarkup.innerHTML = snap.val().rendered;
+	  });
+	};
+	
+	var authData = fbRef.getAuth();
+	if (authData) {
+	  updateData(authData.uid);
+	  console.log(authData.uid);
+	} else {
+	  updateData();
+	  console.log('not logged in');
+	}
 
 /***/ },
 
