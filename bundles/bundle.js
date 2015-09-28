@@ -14469,7 +14469,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports["default"] = "<form class='form-horizontal span6' id='temp'>\n  <%= text %>\n</form>";
+	exports["default"] = "<form class='form-horizontal col-md-5' id='temp'>\n  <%= text %>\n</form>";
 	module.exports = exports["default"];
 
 /***/ },
@@ -14769,7 +14769,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports["default"] = "<!-- Text input-->\n<div class=\"control-group\">\n  <label class=\"control-label\" for=\"<%- id %>\"><%- label %></label>\n  <div class=\"controls\">\n    <input id=\"<%- id %>\" name=\"<%- id %>\" type=\"text\" placeholder=\"<%- placeholder %>\" class=\"<%- inputsize %>\" <% if(required) {%> required <% } %> />\n    <% if (helptext.length > 0) { %><p class=\"help-block\"><%- helptext %></p><% } %>\n  </div>\n</div>";
+	exports["default"] = "<!-- Text input-->\n<div class=\"form-group row\">\n  <label class=\"col-md-4 form-control-label text-right\" for=\"<%- id %>\"><strong><%- label %></strong></label>\n  <div class=\"col-md-6\">\n    <input id=\"<%- id %>\" name=\"<%- id %>\" type=\"text\" placeholder=\"<%- placeholder %>\" class=\"form-control form-control-label <%- inputsize %>\" <% if(required) {%> required <% } %> />\n    <% if (helptext.length > 0) { %><small class=\"text-muted\"><%- helptext %></small><% } %>\n  </div>\n</div>";
 	module.exports = exports["default"];
 
 /***/ },
